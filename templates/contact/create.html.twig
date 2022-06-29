@@ -1,0 +1,70 @@
+{% extends "layout/default.html.twig" %}
+
+{% block titre %}Contact us
+{% endblock %}
+{% block content %}
+
+	<form>
+		<!-- Name input -->
+		<div class="form-outline mb-4">
+			<label class="form-label" for="form4Example1" name="nom">Nom</label>
+			<input type="text" id="form4Example1" class="form-control"/>
+			{% if data and data.nom is empty %}
+				<small class="text-danger">Rentrez votre Nom !</small>
+			{% endif %}
+		</div>
+
+
+		<!-- LastName input -->
+		<div class="form-outline mb-4">
+			<label class="form-label" for="form4Example1" name="prenom">Prenom</label>
+			<input type="text" id="form4Example1" class="form-control"/>
+			{% if data and data.nom is empty %}
+				<small class="text-danger">Rentrez votre Prenom !</small>
+			{% endif %}
+		</div>
+
+		<!-- Email input -->
+		<div class="form-outline mb-4">
+			<label class="form-label" for="form4Example2" name="email">Email address</label>
+			<input type="email" id="form4Example2" class="form-control"/>
+			{% if data and data.nom is empty %}
+				<small class="text-danger">Rentrez votre Email !</small>
+			{% endif %}
+		</div>
+
+		<!-- Message input -->
+		<div class="form-outline mb-4">
+			<label class="form-label" for="form4Example3" name="message">Message</label>
+			<textarea class="form-control" id="form4Example3" rows="4"></textarea>
+			{% if data and data.nom is empty %}
+				<small class="text-danger">Rentrez votre Message !</small>
+			{% endif %}
+		</div>
+
+		<!-- Checkbox -->
+		<div class="form-check d-flex justify-content-center mb-4">
+			<input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked/>
+			<label class="form-check-label" for="form4Example4">
+				Send me a copy of this message
+			</label>
+		</div>
+
+		<!-- Submit button -->
+		<button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+	</form>
+	{# /* <style>
+	    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+	    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
+	
+	<div class="example-wrapper">
+	    <h1>Hello {{ controller_name }}! ✅</h1>
+	
+	    This friendly message is coming from:
+	    <ul>
+	        <li>Your controller at <code><a href="{{ 'C:/Users/Acs/Documents/Symfony/proj1/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
+	        <li>Your template at <code><a href="{{ 'C:/Users/Acs/Documents/Symfony/proj1/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
+	    </ul>
+	</div> */ #}
+{% endblock %}
