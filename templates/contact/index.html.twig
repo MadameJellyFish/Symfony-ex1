@@ -1,0 +1,17 @@
+{% extends "layout/default.html.twig" %}
+{% block titre %}Liste contacts
+{% endblock %}
+
+{% block content %}
+			{# <li class="list-group-item">Liste contacts</li> #}
+	{% for contact in contacts %}
+		<ul class="list-group mt-5">
+			<li class="list-group-item list-group-item-primary">{{contact.nom}}</li>
+			<li class="list-group-item list-group-item-warning">{{contact.prenom}}</li>
+			<li class="list-group-item list-group-item-info">{{contact.email}}</li>
+			<li class="list-group-item list-group-item-danger">{{contact.message}}</li>
+			<br>
+		</ul>
+	{% endfor %}
+
+{% endblock %}
