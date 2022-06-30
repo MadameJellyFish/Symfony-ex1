@@ -4,14 +4,14 @@
 {% endblock %}
 {% block content %}
 
-	<form>
+	<form action="/contact" method="post">
 		<!-- Name input -->
 		<div class="form-outline mb-4">
-			<label class="form-label" for="form4Example1" name="nom">Nom</label>
-			<input type="text" id="form4Example1" class="form-control"/>
-			{% if data and data.nom is empty %}
+			<label class="form-label" for="form4Example1" >Nom</label>
+			<input type="text" id="form4Example1" name="nom" class="form-control"/>
+			{# {% if data and data.nom is empty %}
 				<small class="text-danger">Rentrez votre Nom !</small>
-			{% endif %}
+			{% endif %} #}
 		</div>
 
 
@@ -19,27 +19,27 @@
 		<div class="form-outline mb-4">
 			<label class="form-label" for="form4Example1" name="prenom">Prenom</label>
 			<input type="text" id="form4Example1" class="form-control"/>
-			{% if data and data.nom is empty %}
+			{# {% if data and data.nom is empty %}
 				<small class="text-danger">Rentrez votre Prenom !</small>
-			{% endif %}
+			{% endif %} #}
 		</div>
 
 		<!-- Email input -->
 		<div class="form-outline mb-4">
 			<label class="form-label" for="form4Example2" name="email">Email address</label>
 			<input type="email" id="form4Example2" class="form-control"/>
-			{% if data and data.nom is empty %}
+			{# {% if data and data.nom is empty %}
 				<small class="text-danger">Rentrez votre Email !</small>
-			{% endif %}
+			{% endif %} #}
 		</div>
 
 		<!-- Message input -->
 		<div class="form-outline mb-4">
 			<label class="form-label" for="form4Example3" name="message">Message</label>
 			<textarea class="form-control" id="form4Example3" rows="4"></textarea>
-			{% if data and data.nom is empty %}
+			{# {% if data and data.nom is empty %}
 				<small class="text-danger">Rentrez votre Message !</small>
-			{% endif %}
+			{% endif %} #}
 		</div>
 
 		<!-- Checkbox -->
