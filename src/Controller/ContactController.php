@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use App\Form\ContactType;
 
 
 
@@ -26,10 +27,22 @@ class ContactController extends AbstractController
 
 
     #[Route('/contact/create', name: 'contact.create')]
-    public function create(): Response
-    {
+    public function create(Request $request, EntityManagerInterface $em): Response
+    {  
+        $contact= new Contact();
+        $form=$this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
 
-        return $this->render('contact/create.html.twig');
+        if($form->isSubmitted()&& $form->isValid()){
+            $em->persist($contact);
+            $em->flush();
+            return $this->redirect('/contact');
+        }
+      
+        return $this->render('contact/create.html.twig', [
+            'form'=>$form->createView()//view permet de générer la vue du formulaire
+        ]);
+        // return $this->render('contact/create.html.twig');
     }
 
 
@@ -47,5 +60,11 @@ class ContactController extends AbstractController
         $em->persist($contact); //il dit a l'objet de faire un instance de le preparerle objet el le sauvegarder dans la base de donnes de $contact
         $em->flush(); //enregistrer
         return $this->render('contact/create.html.twig');
+    }
+
+    #[Route('/contact/{id}', name: 'contact.show', methods:['GET'])]
+    public function show( $id, ContactRepository $repo): Response
+    {
+        $contact= $repo->findOne($id);
     }
 }
