@@ -9,7 +9,7 @@
 		{% for contact in contacts %}
 		<ul class="list-group mt-4">
 					{# <li class="list-group-item list-group-item-primary">{{contact.nom}}</li> #}
-					<li class="list-group-item list-group-item-warning"><a href="">{{contact.prenom}}</a></li>
+					<a href="contact/{{contact.id}}"><li class="list-group-item list-group-item-warning">{{contact.prenom}}</li></a>
 					{# <li class="list-group-item list-group-item-info">{{contact.email}}</li>
 					<li class="list-group-item list-group-item-danger">{{contact.message}}</li> #}
 					<br>

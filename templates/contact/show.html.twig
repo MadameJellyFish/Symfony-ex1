@@ -1,7 +1,27 @@
 {% extends "layout/default.html.twig" %}
 
-{% block titre %} Detaille {% endblock %}
+{% block titre %}
+	Detaille
+{% endblock %}
 
 {% block content %}
+	<ul class="list-group mt-4">
+    <h1>Detailles du contact {{contact.prenom}} </h1>
+		{# <input class="form-check-input me-2 mb-4" type="checkbox" value="" id="form4Example4" checked/> #}
+		<li li class="list-group-item list-group-item-primary">
+			{{contact.id}}</li>
+		<li li class="list-group-item list-group-item-primary">
+			{{contact.nom}}</li>
+		<li li class="list-group-item list-group-item-primary mb-4">
+			{{contact.email}}</li>
+	</ul>
+
+	<!-- Submit button, je dois toujurs creer un form -->
+	<form action="/contact/{{contact.id}}" method="POST">
+		<input type="hidden" name="_method" value="DELETE"/>
+		<button type="submit" class="btn btn-primary btn-block mb-4" value=" {{contact.id}} ">Delete</button>
+	</form>
+    {# je dois faire un href pour cet button #}
+    <a href="/contact/edit/{{contact.id}}" type="submit" class="btn btn-primary btn-block mb-4">Edit</a>
 
 {% endblock %}
