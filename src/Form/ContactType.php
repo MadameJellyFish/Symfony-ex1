@@ -16,7 +16,7 @@ class ContactType extends AbstractType
             ->add('Nom', options:[
                 "attr"=>["class"=> "form-control mb-4"],
                 "label_attr"=>["class"=> "form-label"],
-                'required'=>false
+                'required'=>false//pour dire que c'est ne pas mandatory remplir ces inputs
             ])
             ->add('Prenom', options:[
                 "attr"=>["class"=> "form-control  mb-4"],

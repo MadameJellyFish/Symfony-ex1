@@ -85,7 +85,6 @@ class ContactController extends AbstractController
     {
         $contact = $this->repo->find($id);
         $this->repo->remove($contact, true);
-
         return $this->redirect('/contact');
     }
 
@@ -97,8 +96,11 @@ class ContactController extends AbstractController
         $form= $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-        if($form->isSubmited() && $form->isValid()){
-            $this->repo
+        if($form->isSubmitted() && $form->isValid()){
+        //    dd($contact);
+        
+        $this->repo->update();
+        return $this->redirect('/contact');
         }
 
 

@@ -39,6 +39,11 @@ class ContactRepository extends ServiceEntityRepository
         }
     }
 
+    public function update()
+    {
+        $this->getEntityManager()->flush();
+   }
+
 //    /**
 //     * @return Contact[] Returns an array of Contact objects
 //     */
